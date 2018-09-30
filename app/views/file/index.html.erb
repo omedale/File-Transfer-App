@@ -3,6 +3,14 @@
     <main role="main" class="inner cover">
       <h1 class="cover-heading">Filit</h1>
        <button type="button" class="btn btn-primary add-file-btn" data-toggle="modal" data-target="#addNewFile"> Add new file</button>
+
+         <% if @upload.errors.any? %>
+            <div class="alert alert-danger" role="alert">
+              <% @upload.errors.full_messages.each do |message| %>
+                <span><%= message %></span><br>
+              <% end %>
+            </div>
+          <% end %>
     <div>
       <% if @files.count < 1 %>
           <h4 class="text-center no-record"> No files yet, click add file to uploda file </h4>
@@ -26,7 +34,9 @@
               <ul>
                 <% file.files.each do |f| %>
                  <li>
-                  <%= link_to 'Download', f, download: '', :class => 'btn btn-primary btn-sm download'  %>
+
+                    
+                  <%= link_to 'Download', rails_blob_path(f, disposition: "attachment"), :class => 'btn btn-primary btn-sm download', download: ''  %>
                   </li>
                 <% end %>
               </ul>

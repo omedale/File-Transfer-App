@@ -27,7 +27,11 @@ gem 'autoprefixer-rails'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'dropzonejs-rails'
+gem 'aws-sdk'
+gem "aws-sdk-s3", require: false
 
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem 'rack-cors'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
