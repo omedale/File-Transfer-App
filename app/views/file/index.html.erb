@@ -2,8 +2,10 @@
   <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
     <main role="main" class="inner cover">
       <h1 class="cover-heading">Filit</h1>
+       <% if @files.count > 0 %>
+        <p class="alert alert-success" id="exampleModalLongTitle">Access file with your passphrase (username: admin)</p>
+       <% end %>
        <button type="button" class="btn btn-primary add-file-btn" data-toggle="modal" data-target="#addNewFile"> Add new file</button>
-
          <% if @upload.errors.any? %>
             <div class="alert alert-danger" role="alert">
               <% @upload.errors.full_messages.each do |message| %>
@@ -11,7 +13,7 @@
               <% end %>
             </div>
           <% end %>
-    <div>
+      <div>
       <% if @files.count < 1 %>
           <h4 class="text-center no-record"> No files yet, click add file to uploda file </h4>
       <% else %>
@@ -31,15 +33,7 @@
             <td> <%= file.title %></td>
             <td><%= file.description %></td>
             <td>
-              <ul>
-                <% file.files.each do |f| %>
-                 <li>
-
-                    
-                  <%= link_to 'Download', rails_blob_path(f, disposition: "attachment"), :class => 'btn btn-primary btn-sm download', download: ''  %>
-                  </li>
-                <% end %>
-              </ul>
+               <%= link_to 'Show files', upload_path(file.id), method: :get, :class => 'btn btn-primary btn-sm download'  %>
             </td>
           </tr>
         <% end %>
@@ -52,8 +46,4 @@
 </div>
 <!-- Modal -->
 <%= render :partial => 'new_file_modal' %>
-
-<script>
-
-</script>
 
