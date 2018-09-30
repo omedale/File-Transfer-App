@@ -1,0 +1,14 @@
+// Place all the styles related to the File controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.add-file-btn {
+  margin-bottom: 5px !important;
+}
+
+.add-file-modal {
+  background: rgba(51, 51, 51, 0.62) !important;
+}
+
+.dropzone {
+  border: 1px dashed black !important;
+}
