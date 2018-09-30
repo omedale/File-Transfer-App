@@ -10,13 +10,16 @@
      <%= form_with(model: @upload, local: true) do |f| %>
       <div class="modal-body">
        <div class="form-group">
-         <%= f.text_field :title, class: "form-control file-name text-center", placeholder: 'File title' %>
+         <%= f.text_field :title, required: true, class: "form-control file-name text-center", placeholder: 'File title' %>
         </div>
          <div class="form-group">
-           <%= f.text_area :description, class: "form-control file-name text-center", placeholder: 'File description' %>
+           <%= f.text_area :description, required: true, class: "form-control file-name text-center", placeholder: 'File description' %>
         </div>
+         <div class="form-group">
+          <div id="progress-bar"></div>
+         </div>
         <div class="form-group">
-             <%= f.file_field :files, multiple: true, direct_upload: true , class: "dropzone" %>
+             <%= f.file_field :files,  required: true, multiple: true, direct_upload: true , class: "dropzone" %>
         </div>
       </div>
       <div class="modal-footer">
