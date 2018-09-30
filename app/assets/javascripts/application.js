@@ -31,8 +31,13 @@ $(document).ready(function(){
 		paramName: "upload[image]",
 		// show remove links on each image upload
 		addRemoveLinks: true
-	});	
+	});
 
+	$('#reset-form').click(function() {
+		$('#progress-wrap').empty().append('<div id="progress-bar"></div>')
+		$('form')[0].reset();
+	});
+	
 	addEventListener("direct-upload:initialize", event => {
 		const { detail } = event
 		const { id, file } = detail
@@ -64,6 +69,7 @@ $(document).ready(function(){
 		const element = document.getElementById(`direct-upload-${id}`)
 		element.classList.add("direct-upload--error")
 		element.setAttribute("title", error)
+		alert(error + ". This file already exist")
 	})
 	 
 	addEventListener("direct-upload:end", event => {
