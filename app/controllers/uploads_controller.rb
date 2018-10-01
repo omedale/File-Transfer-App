@@ -65,7 +65,6 @@ class UploadsController < ApplicationController
   end
 
   def validate_user
-    puts '.........'
     authenticate_or_request_with_http_basic('Administration') do |username,password|
       file = Upload.find(params[:id])
       pass_phrase = decrypt_passphrase file.passphrase
