@@ -13,6 +13,13 @@
               <% end %>
             </div>
           <% end %>
+
+          <% flash.each do |name, msg| %>
+            <div class='alert alert-<%= "#{name}" %>'>
+              <a href="#" class="close" data-dismiss="alert">&#212;</a>
+              <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+            </div>
+          <% end %>
       <div>
       <% if @files.count < 1 %>
           <h4 class="text-center no-record"> No files yet, click add file to uploda file </h4>
@@ -33,12 +40,16 @@
             <td> <%= file.title %></td>
             <td><%= file.description %></td>
             <td>
-               <%= link_to 'Show files', upload_path(file.id), method: :get, :class => 'btn btn-primary btn-sm download'  %>
+              <%= link_to 'Show files', upload_path(file.id), method: :get, :class => 'btn btn-primary btn-sm download'  %>
+              <%= link_to 'Delete', upload_path(file.id), method: :delete, :class => 'btn btn-danger btn-sm download'  %>
             </td>
           </tr>
         <% end %>
         </tbody>
       </table>
+         <div align="center">
+          <%= will_paginate  @files %>
+        </div>
        <% end %>
     </div>
     </main>
