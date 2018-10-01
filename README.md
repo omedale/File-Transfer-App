@@ -1,24 +1,15 @@
-# README
+# Setup 
+```
+$ touch config/local_env.yml
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Add AWS keys and encryption keys to local_env.yml
+AWS_ACCESS_KEY: 
+AWS_SECRET_KEY: 
+AWS_BUCKET: 
+SECRET: 
 
-Things you may want to cover:
 
-* Ruby version
+$ bundle install
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+$ rails s
+```

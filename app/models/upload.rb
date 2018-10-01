@@ -2,6 +2,7 @@ class Upload < ApplicationRecord
   has_many_attached :files
   validates :title, presence: true
   validates :description, presence: true
+  validates :passphrase, presence: true
   validate :validate_file
 
   private

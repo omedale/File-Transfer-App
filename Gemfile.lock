@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/thoughtbot/shoulda-matchers.git
+  revision: 4b160bd19ecca7f97d7ac22dccd5fde9b0da5a9f
+  branch: rails-5
+  specs:
+    shoulda-matchers (3.1.2)
+      activesupport (>= 4.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -647,6 +655,8 @@ GEM
       sass (>= 3.5.2)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
+    bootstrap-will_paginate (0.0.10)
+      will_paginate
     builder (3.2.3)
     byebug (10.0.2)
     coffee-rails (4.2.2)
@@ -658,10 +668,17 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    database_cleaner (1.7.0)
+    diff-lcs (1.3)
     dropzonejs-rails (0.8.2)
       rails (> 3.1)
     erubi (1.7.1)
     execjs (2.7.0)
+    factory_bot (4.11.1)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.11.1)
+      factory_bot (~> 4.11.1)
+      railties (>= 3.0.0)
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -731,6 +748,23 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    rspec-core (3.8.0)
+      rspec-support (~> 3.8.0)
+    rspec-expectations (3.8.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.8.0)
+    rspec-mocks (3.8.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.8.0)
+    rspec-rails (3.8.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
+      rspec-support (~> 3.8.0)
+    rspec-support (3.8.0)
     ruby_dep (1.5.0)
     sass (3.6.0)
       sass-listen (~> 4.0.0)
@@ -774,6 +808,7 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+    will_paginate (3.1.5)
 
 PLATFORMS
   ruby
@@ -785,9 +820,12 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap
   bootstrap-sass (~> 3.2.0)
+  bootstrap-will_paginate (= 0.0.10)
   byebug
   coffee-rails (~> 4.2)
+  database_cleaner
   dropzonejs-rails
+  factory_bot_rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
@@ -795,7 +833,9 @@ DEPENDENCIES
   puma (~> 3.11)
   rack-cors
   rails (~> 5.2.1)
+  rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
+  shoulda-matchers!
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
@@ -803,6 +843,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  will_paginate (= 3.1.5)
 
 RUBY VERSION
    ruby 2.4.0p0
